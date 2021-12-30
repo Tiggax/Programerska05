@@ -15,8 +15,9 @@ public class UnionFind {
 	 * Metoda sprejme index in vrne predstavnika mnozice, katere clan je index.
 	 */
 	public int find(int i) {
+		// neki je treba kle spremenit
 		int tmp = i;
-		
+
 		while ( tmp != id[tmp] ) {
 			tmp = id[tmp];
 		}
@@ -29,7 +30,7 @@ public class UnionFind {
 	 */
 	public void unite(int p, int q) {
 		// q je v p-ju -> od p-ja koren vzames
-		id[q] = find(p);
+		id[p] = find(q);
 	}
 
 	/*
