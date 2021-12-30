@@ -5,7 +5,7 @@ public class UnionFind {
 	public int[] id;
 
 	public UnionFind(int N) {
-		this.id = new int[15];
+		this.id = new int[N];
 		for (int i = 0; i < id.length; i++) {
 			this.id[i] = i;
 		}
@@ -15,10 +15,13 @@ public class UnionFind {
 	 * Metoda sprejme index in vrne predstavnika mnozice, katere clan je index.
 	 */
 	public int find(int i) {
-		while ( i != id[i] ) {
-			i = id[i];
+		int tmp = i;
+		
+		while ( tmp != id[tmp] ) {
+			tmp = id[tmp];
 		}
-		return i;
+		id[i] = tmp;
+		return tmp;
 	}
 
 	/*
