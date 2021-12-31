@@ -1,5 +1,6 @@
 package psa.naloga2;
 
+import java.util.Vector;
 
 public class UnionFind {
 	public int[] id;
@@ -17,11 +18,16 @@ public class UnionFind {
 	public int find(int i) {
 		// neki je treba kle spremenit
 		int tmp = i;
+		Vector<Integer> viktor = new Vector<Integer>();
 
 		while ( tmp != id[tmp] ) {
+			viktor.add(tmp);
 			tmp = id[tmp];
 		}
 		id[i] = tmp;
+		for (Integer st : viktor) {
+			id[st] = tmp;
+		}
 		return tmp;
 	}
 
@@ -30,7 +36,7 @@ public class UnionFind {
 	 */
 	public void unite(int p, int q) {
 		// q je v p-ju -> od p-ja koren vzames
-		id[p] = find(q);
+		this.id[p] = find(q);
 	}
 
 	/*
